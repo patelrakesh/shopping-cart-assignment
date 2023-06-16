@@ -1,0 +1,14 @@
+<div class="slider">
+    {{#each banners}}
+    <div class="slider__slide">
+        <picture>
+            <img src="{{ ../server }}{{ this.bannerImageUrl }}" alt="{{this.bannerImageAlt}}" height="100"
+                width="300" />
+        </picture>
+    </div>
+    {{/each}}
+</div>
+<div class="slider-btn">
+    <button class="btn btn-prev" aria-label="previous slide">PREV</button>
+    <button class="btn btn-next" aria-label="next slide">NEXT</button>
+</div>
