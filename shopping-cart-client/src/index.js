@@ -2,6 +2,8 @@ import { globals } from "./globals";
 import "./styles/main.scss";
 import { getData, getCategories } from "./common";
 
+let products = [];
+
 document.addEventListener('DOMContentLoaded', (event) => {
     // slider
     const generateSlider = async () => {
@@ -54,6 +56,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     generateSlider();
+    // slider
 
     // dropdown
     const dropbtns = document.querySelectorAll(".dropbtn");
@@ -103,5 +106,44 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     generatecategories();
-   
+    // home category
+
+    // product category
+    const generateProductPageCategories = async () => {
+        const product_page_category = document.getElementById('product-page-category');
+        if (product_page_category) {
+            const categories = await getCategories();
+            if (categories.length > 0) {
+                const template = require("./partials/p_categories.handlebars");
+                product_page_category.innerHTML = template({
+                    categories,
+                });
+            }
+        }
+    }
+
+    generateProductPageCategories();
+    // home category
+
+    const generateProducts = async () => {
+        const product_list = document.getElementById('product-list');
+        if (product_list) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const category_id = urlParams.get('category_id');
+            products = await getData(`${globals.API_URL}/api/products?category_id=${category_id || ""}`);
+            console.log("products", products)
+            if (products.length > 0) {
+                const productTemplate = require("./partials/products.handlebars");
+                product_list.innerHTML = productTemplate({
+                    products,
+                    server: globals.API_URL
+                });
+
+            }
+        }
+    }
+
+    generateProducts();
+
 });

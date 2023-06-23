@@ -1,19 +1,27 @@
 .navbar {
     border-bottom: 1px solid #cacaca;
-    @extend %align-center;
-    justify-content: space-between;
+    box-shadow: 0px 1px 5px 0px #888888;
 
     &__logo {
         img {
-            max-width: 100px;
+            max-width: 150px;
             height: auto;
         }
+
         a {
             display: inline-block;
         }
     }
 
-    &__menu, &__links {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding: 0 !important;
+    }
+
+    &__menu,
+    &__links {
         display: none;
         flex-wrap: wrap;
         padding-left: 0;
@@ -35,7 +43,7 @@
 
     &__cart {
         @extend %align-center;
-        padding: 0.5rem;
+        padding: 1rem 0.5rem;
         background-color: $light;
         border: 1px solid transparent;
         color: $font-color;
@@ -46,6 +54,9 @@
         svg {
             margin-right: 0.2rem;
             fill: #d00155;
+        }
+        @include mobile {
+            padding: 1.7rem 2rem;
         }
     }
 
