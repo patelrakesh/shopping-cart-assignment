@@ -1,8 +1,7 @@
 import { globals } from "./globals";
 import "./styles/main.scss";
 import { getData, getCategories } from "./common";
-
-let products = [];
+import cart from "./cart"
 
 document.addEventListener('DOMContentLoaded', (event) => {
     // slider
@@ -125,25 +124,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     generateProductPageCategories();
     // home category
 
-    const generateProducts = async () => {
-        const product_list = document.getElementById('product-list');
-        if (product_list) {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const category_id = urlParams.get('category_id');
-            products = await getData(`${globals.API_URL}/api/products?category_id=${category_id || ""}`);
-            console.log("products", products)
-            if (products.length > 0) {
-                const productTemplate = require("./partials/products.handlebars");
-                product_list.innerHTML = productTemplate({
-                    products,
-                    server: globals.API_URL
-                });
-
-            }
-        }
-    }
-
-    generateProducts();
-
+    cart();
 });

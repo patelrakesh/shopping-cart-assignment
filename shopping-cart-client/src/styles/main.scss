@@ -89,7 +89,7 @@ button {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     column-gap: 1rem;
     position: relative;
     background: #fff;
@@ -280,7 +280,7 @@ button {
 
       &__image {
         text-align: center;
-        margin-bottom: 0.3rem;
+        margin: 0.5rem 0px;
 
         @include tablet {
           & {
@@ -345,7 +345,7 @@ button {
         @extend %align-center;
         justify-content: space-between;
         align-items: center;
-        // flex: 1 0 auto;
+        margin-top: 1rem;
 
         button {
           @extend %primary-button;
@@ -404,7 +404,6 @@ button {
         @extend %align-center;
         justify-content: space-between;
         align-items: center;
-        // flex: 1 0 auto;
 
         button {
           @extend %primary-button;
@@ -474,8 +473,10 @@ footer {
   text-align: left;
   margin: 0 auto;
 
-  @include tablet-up {
+  @include tablet {
+    .footer {
     text-align: center;
+    }
   }
 }
 
@@ -563,6 +564,7 @@ footer {
     @include mobile {
       text-align: center;
     }
+    margin-top: 1rem;
   }
 
   .login-form {
@@ -618,4 +620,182 @@ footer {
     @extend %primary-button;
     width: 100%;
   }
+}
+
+.cart_area {
+  @include tablet {
+    width: 100%;
+    right: 0;
+    left: 0;
+    box-shadow: none;
+  }
+  @include mobile {
+    width: 100%;
+    right: 0;
+    left: 0;
+    box-shadow: none;
+  }
+  right: 0;
+  position: fixed;
+  top: 74px;
+  height: calc(100vh - 75px);
+  overflow: hidden;
+  // padding: 0.5rem;
+  z-index: 10;
+  
+  &__header {
+    @extend %align-center;
+    justify-content: space-between;
+    background: #212529;
+    padding: 1rem;
+    color: #fff;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.2rem;
+    }
+  }
+
+  #cart_area_body {
+    height: calc(89% - 70px);
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+    height: 100%;
+    overflow: auto; 
+  }
+
+  ul .lowest-price {
+    display: flex;
+    align-items: center !important;
+    gap: 20px;
+  }
+  
+  .lowest-price span {
+    font-size: 13px;
+  }
+
+  .lowest-price {
+    margin: 10px;
+  }
+
+  &__details {
+    flex-grow: 1;
+
+    .np-x {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__product {
+    margin-top: 10px;
+    padding: 0.5rem;
+    background-color: #fff;
+    display: flex;
+    gap: 10px;
+  }
+
+  &__name {
+    font-size: 0.9rem;
+  }
+
+  &__price {
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+
+  &__total-price {
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+
+  &__btn-action {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+    border-radius: 50%;
+    @include mobile {
+      padding: 0.2rem 0.7rem;
+      border-radius: 0;
+    }
+    @include tablet-up {
+      padding: 0.2rem 0.7rem;
+      border-radius: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    @extend %align-center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+
+    .cart-qty {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+
+  &__checkout {
+    #cart_total_amount {
+      font-size: 0.9rem;
+    }
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    a {
+      display: flex;
+      justify-content: space-between;
+      background-color: $primary;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 300px;
+      border-radius: 2px;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+
+  &__empty {
+    @extend %align-center;
+    justify-content: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    li{
+      text-align: center;
+      p{
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .start_shopping_btn{
+    a{
+      justify-content: center;
+    }
+  }
+  &__close {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+  }
+}
+.navbar__cart_area {
+  background-color: #ffffff;;
 }
