@@ -1,5 +1,5 @@
-@import 'colors';
-@import 'media-queries';
+@import "colors";
+@import "media-queries";
 
 $font-stack: Helvetica, sans-serif;
 
@@ -57,7 +57,7 @@ button {
   color: #fff;
 }
 
-@import 'navbar';
+@import "navbar";
 
 .page-title {
   font-size: 1.5rem;
@@ -73,8 +73,7 @@ button {
   }
 }
 
-
-@import 'slider';
+@import "slider";
 
 .isReverse {
   flex-direction: row-reverse;
@@ -162,7 +161,6 @@ button {
     }
 
     @include mobile-up {
-
       &--content {
         text-align: center;
 
@@ -173,7 +171,6 @@ button {
     }
   }
 }
-
 
 .dropdown {
   position: relative;
@@ -194,10 +191,7 @@ button {
   display: block;
 }
 
-
-
 #product-category {
-  margin-top: 1rem;
 
   .category {
     &__link {
@@ -218,6 +212,8 @@ button {
       li {
         padding: 0.5rem;
         border-bottom: 1px solid #d9d9d9;
+        margin: 0px 25px;
+        list-style: none;
 
         a {
           color: $font-color;
@@ -321,7 +317,6 @@ button {
         background-color: #e6e6e6;
         min-height: 80px;
         padding: 5px;
-
       }
 
       &__mobile {
@@ -352,7 +347,7 @@ button {
 
           &:disabled {
             pointer-events: none;
-            opacity: .65;
+            opacity: 0.65;
           }
         }
 
@@ -374,7 +369,6 @@ button {
         @extend %align-center;
         justify-content: space-between;
         align-items: center;
-        // flex: 1 0 auto;
 
         button {
           @extend %primary-button;
@@ -382,7 +376,7 @@ button {
 
           &:disabled {
             pointer-events: none;
-            opacity: .65;
+            opacity: 0.65;
           }
         }
 
@@ -411,7 +405,7 @@ button {
 
           &:disabled {
             pointer-events: none;
-            opacity: .65;
+            opacity: 0.65;
           }
         }
 
@@ -453,6 +447,7 @@ button {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
+      padding-top: 5px;
     }
   }
 
@@ -463,10 +458,14 @@ button {
 
     #product-list {
       grid-template-columns: repeat(4, 1fr);
+      padding-top: 5px;
     }
   }
 }
 
+.pro-container {
+  padding: 0;
+}
 footer {
   background-color: $light;
   font-size: 0.8rem;
@@ -475,7 +474,7 @@ footer {
 
   @include tablet {
     .footer {
-    text-align: center;
+      text-align: center;
     }
   }
 }
@@ -531,7 +530,6 @@ footer {
 #home-slider {
   position: relative;
 }
-
 
 @include small-desktop-up {
   #home-slider {
@@ -589,7 +587,7 @@ footer {
   .form-label {
     display: inline-block;
     font-size: 0.9rem;
-    color: #D3D3D3;
+    color: #d3d3d3;
   }
 
   .controls {
@@ -603,13 +601,13 @@ footer {
       font-size: 1rem;
       outline: 0;
       border-width: 0 0 2px;
-      border-bottom-color: #D3D3D3;
+      border-bottom-color: #d3d3d3;
 
       &:focus {
         border-color: #51dae3;
         outline: 0;
 
-        +.form-label {
+        + .form-label {
           color: #51dae3;
         }
       }
@@ -628,6 +626,7 @@ footer {
     right: 0;
     left: 0;
     box-shadow: none;
+    top: 90px;
   }
   @include mobile {
     width: 100%;
@@ -640,9 +639,8 @@ footer {
   top: 74px;
   height: calc(100vh - 75px);
   overflow: hidden;
-  // padding: 0.5rem;
   z-index: 10;
-  
+
   &__header {
     @extend %align-center;
     justify-content: space-between;
@@ -657,6 +655,21 @@ footer {
     button {
       padding: 0.2rem;
     }
+    @include tablet {
+      & {
+        background: #fff;
+        color: #212529;
+        margin-top: 20px;
+      }
+    }
+
+    @include mobile {
+      & {
+        background: #fff;
+        color: #212529;
+        margin-top: 20px;
+      }
+    }
   }
 
   #cart_area_body {
@@ -667,7 +680,7 @@ footer {
     padding-left: 0;
     list-style: none;
     height: 100%;
-    overflow: auto; 
+    overflow: auto;
   }
 
   ul .lowest-price {
@@ -675,7 +688,7 @@ footer {
     align-items: center !important;
     gap: 20px;
   }
-  
+
   .lowest-price span {
     font-size: 13px;
   }
@@ -777,16 +790,16 @@ footer {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    li{
+    li {
       text-align: center;
-      p{
+      p {
         font-weight: bold;
         margin-bottom: 5px;
       }
     }
   }
-  .start_shopping_btn{
-    a{
+  .start_shopping_btn {
+    a {
       justify-content: center;
     }
   }
@@ -797,5 +810,5 @@ footer {
   }
 }
 .navbar__cart_area {
-  background-color: #ffffff;;
+  background-color: #ffffff;
 }
