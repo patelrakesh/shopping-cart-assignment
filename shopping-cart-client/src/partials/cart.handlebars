@@ -1,0 +1,71 @@
+{{#if products}}
+<ul>
+    {{#each products}}
+    <li class="cart_area__product">
+        <div class="cart_area__image">
+            <img src="{{ ../server }}{{ this.imageURL }}" alt="{{this.name}}" width="90" height="90" loading="lazy">
+        </div>
+        <div class="cart_area__details">
+            <div class="np-x d-flex">
+                <div>
+                    <h3 class="cart_area__name">{{ this.name }}</h3>
+                </div>
+            </div>
+            <div class="cart_area__actions">
+                <div class="cart-qty">
+                    <button type="button" class="btn-danger cart_area__btn-action decrementQty"
+                        aria-label="Decrease Quantity" data-id="{{this.id}}">-</button>
+                    <span>{{ this.item }}</span>
+                    <button type="button" class="btn-danger cart_area__btn-action incrementQty"
+                        aria-label="Increase Quantity" data-id="{{this.id}}">+</button>
+                    <span>x</span>
+                    <p class="cart_area__price">Rs. {{ this.price }}</p>
+                </div>
+                <div class="cart-product-total">
+                    <span class="cart_area__total-price">Rs. {{multiply this.price this.item }}</span>
+                </div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+    <li class="cart_area__product lowest-price">
+        <div class="cart_area__image">
+            <img src="../../../shopping-cart-server/static/images/lowest-price.png" width="100" loading="lazy">
+        </div>
+        <div class="cart_area__details">
+            <span>You wan't find it cheaper anywhere</span>
+        </div>
+    </li>
+</ul>
+
+<div class="cart_area__checkout">
+    <span>Prormo code can be applied on payment pgae</span>
+    <a href="#">
+        Proceed to Checkout
+        <p>RS. <span id="cart_total_amount"></span> <svg fill="#fff" height="10px" width="10px" version="1.1"
+                id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 47.255 47.255" xml:space="preserve">
+                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                <g id="SVGRepo_iconCarrier">
+                    <g>
+                        <path
+                            d="M12.314,47.255c-0.256,0-0.512-0.098-0.707-0.293c-0.391-0.391-0.391-1.023,0-1.414l21.92-21.92l-21.92-21.92 c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L35.648,22.92c0.391,0.391,0.391,1.023,0,1.414L13.021,46.962 C12.825,47.157,12.57,47.255,12.314,47.255z" />
+                    </g>
+                </g>
+            </svg> </p>
+    </a>
+</div>
+{{else}}
+<ul class="cart_area__empty">
+    <li>
+        <p>No items in your cart</p>
+        <span>Your favourite items are just a click away</span>
+    </li>
+</ul>
+<div class="cart_area__checkout start_shopping_btn">
+    <a href="/products.html">
+        Start Shopping
+    </a>
+</div>
+{{/if}}

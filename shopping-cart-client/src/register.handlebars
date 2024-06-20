@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Sabka Bazar Grocery Store</title>
+    <meta name="description"
+        content="Whether you work from home or office or other workplaces, daily grocery items are a requisite for everybody.">
+    <meta name="keywords"
+        content="grocery, supermarket, online, price, store, online groceries,online grocery delivery">
+</head>
+
+<body>
+    {{> ./partials/header }}
+    <main id="content">
+        <div class="container">
+            <div class="alert" role="alert"></div>
+            <section id="register-page">
+                <div class="register-text">
+                    <h1 class="page-title">Signup</h1>
+                    <p>We do not share your personal details with anyone.</p>
+                </div>
+                <div class="register-form">
+                    <form>
+                        <div class="mb-2 controls">
+                            <input type="text" class="form-control" id="first_name" />
+                            <label for="first_name" class="form-label">First Name</label>
+                        </div>
+                        <div class="mb-2 controls">
+                            <input type="text" class="form-control" id="last_name" />
+                            <label for="last_name" class="form-label">Last Name</label>
+                        </div>
+                        <div class="mb-2 controls">
+                            <input type="email" class="form-control" id="email" />
+                            <label for="email" class="form-label">Email</label>
+                        </div>
+                        <div class="mb-2 controls">
+                            <input type="password" class="form-control" id="password">
+                            <label for="password" class="form-label">Password</label>
+                        </div>
+                        <div class="mb-2 controls">
+                            <input type="password" class="form-control" id="confirm_password">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                        </div>
+                        <button type="submit" class="btn">Signup</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        {{> ./partials/footer }}
+    </footer>
+</body>
+
+</html>

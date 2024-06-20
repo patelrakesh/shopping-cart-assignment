@@ -31,4 +31,18 @@ router.get('/categories', async(req, res) => {
     }
 })
 
+router.get('/products', async(req, res) => {
+    try {
+        const category_id = req.query.category_id;
+        let content = await getContent("products");
+        content = JSON.parse(content);
+        if(category_id) {
+            content = content.filter(x => x.category == category_id);
+        }
+        res.json(content);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
+
 module.exports = router;
